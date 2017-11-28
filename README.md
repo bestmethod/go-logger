@@ -1,4 +1,4 @@
-# logger
+# go-logger Golang Logger
 Logger on steroids
 
 ## Get it
