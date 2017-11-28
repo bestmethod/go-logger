@@ -1,7 +1,7 @@
 # go-logger Golang Logger
 Logger on steroids
-![coverage-100](https://github.com/bestmethod/go-logger/badge_coverage.png)
-![build-passing](https://github.com/bestmethod/go-logger/badge_build.png)
+![coverage-100](https://github.com/bestmethod/go-logger/blob/master/badge_coverage.png)
+![build-passing](https://github.com/bestmethod/go-logger/blob/master/badge_build.png)
 
 ## Get it
 ```bash
