@@ -3,7 +3,7 @@ Logger on steroids
 
 ## Get it
 ```bash
-go get github.com/bestmethod/logger
+go get github.com/bestmethod/go-logger
 ```
 
 ## Usage
