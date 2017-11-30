@@ -54,6 +54,7 @@ func TestLoggerError(t *testing.T) {
 	logger.Warn("InfoWarn")
 	logger.Error("InfoError")
 	logger.Critical("InfoCritical")
+	logger.Destroy()
 }
 
 func TestLoggerDevlog(t *testing.T) {
@@ -67,6 +68,22 @@ func TestLoggerDevlog(t *testing.T) {
 	logger.Warn("InfoWarn")
 	logger.Error("InfoError")
 	logger.Critical("InfoCritical")
+	logger.Destroy()
+}
+
+func TestLoggerAsync(t *testing.T) {
+	logger := new(Logger)
+	err := logger.Init("TEST", "TEST", LEVEL_NONE, LEVEL_DEBUG|LEVEL_INFO|LEVEL_WARN|LEVEL_ERROR|LEVEL_CRITICAL, LEVEL_NONE)
+	logger.Async = true
+	if err != nil {
+		t.FailNow()
+	}
+	logger.Info("InfoTest")
+	logger.Debug("InfoDebug")
+	logger.Warn("InfoWarn")
+	logger.Error("InfoError")
+	logger.Critical("InfoCritical")
+	logger.Destroy()
 }
 
 func mockOsExit(code int) {

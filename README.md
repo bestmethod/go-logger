@@ -6,10 +6,21 @@ Logger on steroids. Build passing. 100% test coverage.
 go get github.com/bestmethod/go-logger
 ```
 
-## Usage
-#### Create object
+## What's new
+#### Async option
+There is now support for async logging. To avoid slowdown of main code when logging to stdout, one can run the logger in Async mode - which in turn uses goroutines. This allows for the main code execution without delay. To use, set logger.Async to true AFTER running the logger.Init().
+###### Warning: Use Async at your own peril. If your logging falls behind the main code, you risk exhausting handles, memory or goroutine space and crashing. This is no designed as a queuing mechanism for logging, but marely to allow for more real-time of main code execution.
 ```go
 logger := new(Logger.Logger)
+logger.Init(header, serviceName, stdoutLevels, stderrLevels, devlogLevels)
+logger.Async = true
+```
+
+## Usage
+#### Create object and Init
+```go
+logger := new(Logger.Logger)
+err := logger.Init(header, serviceName, stdoutLevels, stderrLevels, devlogLevels)
 ```
 #### Functions
 ```go
@@ -20,6 +31,15 @@ func (l *Logger) Warn(m string) {}
 func (l *Logger) Error(m string) {}
 func (l *Logger) Critical(m string) {}
 func (l *Logger) Fatal(m string) {}
+func (l *Logger) Destroy() error {}
+```
+
+#### Destroy objects before forgetting them
+This will destroy the devlog handler and the connection to devlog that it holds in the background (open handle). If you are crazy enough to Init and destroy 100s of loggers in your code, you may want to use this.
+
+Note that this will not stop the logger from working if you use it afterwards. This just disables and closes the devlog type logger as a cleanup procedure. If you do not use devlog logger, don't worry about this at all.
+```
+err := logger.Destroy()
 ```
 
 ## Example
@@ -29,7 +49,7 @@ import "fmt"
 import "os"
 
 logger := new(Logger.Logger)
-err = logger.Init("SUBNAME", "SERVICENAME", Logger.LEVEL_DEBUG | Logger.LEVEL_INFO | Logger.LEVEL_WARN, Logger.LEVEL_ERROR | Logger.LEVEL_CRITICAL, Logger.LEVEL_NONE)
+err := logger.Init("SUBNAME", "SERVICENAME", Logger.LEVEL_DEBUG | Logger.LEVEL_INFO | Logger.LEVEL_WARN, Logger.LEVEL_ERROR | Logger.LEVEL_CRITICAL, Logger.LEVEL_NONE)
 if err != nil {
   fmt.Fprintf(os.Stderr, "CRITICAL Could not initialize logger. Quitting. Details: %s\n", err)
   os.Exit(1)
@@ -39,8 +59,8 @@ logger.Info("This is info message")
 logger.Debug("This is debug message")
 logger.Error("This is error message")
 logger.Warn("This is warning message")
-logger.Ciritical("This is critical message")
+logger.Critical("This is critical message")
   
-code:=1
+code := 1
 logger.Fatal("This is a critical message that terminates the program with os.exit(code)", code)
 ```

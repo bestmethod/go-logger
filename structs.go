@@ -25,4 +25,5 @@ type Logger struct {
 	Devlog      *syslog.Writer
 	DevlogLevel int
 	osExit      func(code int)
+	Async       bool
 }

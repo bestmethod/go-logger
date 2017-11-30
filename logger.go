@@ -6,23 +6,43 @@ import (
 )
 
 func (l *Logger) Debug(m string) {
-	l.dispatch(LEVEL_DEBUG, m)
+	if l.Async == false {
+		l.dispatch(LEVEL_DEBUG, m)
+	} else {
+		go l.dispatch(LEVEL_DEBUG, m)
+	}
 }
 
 func (l *Logger) Info(m string) {
-	l.dispatch(LEVEL_INFO, m)
+	if l.Async == false {
+		l.dispatch(LEVEL_INFO, m)
+	} else {
+		go l.dispatch(LEVEL_INFO, m)
+	}
 }
 
 func (l *Logger) Warn(m string) {
-	l.dispatch(LEVEL_WARN, m)
+	if l.Async == false {
+		l.dispatch(LEVEL_WARN, m)
+	} else {
+		go l.dispatch(LEVEL_WARN, m)
+	}
 }
 
 func (l *Logger) Error(m string) {
-	l.dispatch(LEVEL_ERROR, m)
+	if l.Async == false {
+		l.dispatch(LEVEL_ERROR, m)
+	} else {
+		go l.dispatch(LEVEL_ERROR, m)
+	}
 }
 
 func (l *Logger) Critical(m string) {
-	l.dispatch(LEVEL_CRITICAL, m)
+	if l.Async == false {
+		l.dispatch(LEVEL_CRITICAL, m)
+	} else {
+		go l.dispatch(LEVEL_CRITICAL, m)
+	}
 }
 
 func (l *Logger) Fatal(m string, exitCode int) {

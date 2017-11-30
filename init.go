@@ -13,6 +13,7 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 	l.StderrLevel = stderrLevel
 	l.DevlogLevel = devlogLevel
 	l.osExit = os.Exit
+	l.Async = false
 	var err error
 	err = nil
 	if stdoutLevel != 0 {
@@ -33,4 +34,13 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 		l.Devlog = nil
 	}
 	return err
+}
+
+func (l *Logger) Destroy() error {
+	if l.Devlog != nil {
+		l.DevlogLevel = 0
+		return l.Devlog.Close()
+	} else {
+		return nil
+	}
 }
