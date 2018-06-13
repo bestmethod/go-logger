@@ -101,4 +101,5 @@ func TestLoggerFatal(t *testing.T) {
 	}
 	logger.osExit = mockOsExit
 	logger.Fatal("FatalTest", 0)
+	logger.Fatalf(0,"test %s","boom")
 }

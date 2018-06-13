@@ -5,7 +5,13 @@ import (
 	"time"
 )
 
-func (l *Logger) Debug(m string) {
+func (l *Logger) Debug(format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
 	if l.Async == false {
 		l.dispatch(LEVEL_DEBUG, m)
 	} else {
@@ -13,7 +19,13 @@ func (l *Logger) Debug(m string) {
 	}
 }
 
-func (l *Logger) Info(m string) {
+func (l *Logger) Info(format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
 	if l.Async == false {
 		l.dispatch(LEVEL_INFO, m)
 	} else {
@@ -21,7 +33,13 @@ func (l *Logger) Info(m string) {
 	}
 }
 
-func (l *Logger) Warn(m string) {
+func (l *Logger) Warn(format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
 	if l.Async == false {
 		l.dispatch(LEVEL_WARN, m)
 	} else {
@@ -29,7 +47,13 @@ func (l *Logger) Warn(m string) {
 	}
 }
 
-func (l *Logger) Error(m string) {
+func (l *Logger) Error(format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
 	if l.Async == false {
 		l.dispatch(LEVEL_ERROR, m)
 	} else {
@@ -37,12 +61,29 @@ func (l *Logger) Error(m string) {
 	}
 }
 
-func (l *Logger) Critical(m string) {
+func (l *Logger) Critical(format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
 	if l.Async == false {
 		l.dispatch(LEVEL_CRITICAL, m)
 	} else {
 		go l.dispatch(LEVEL_CRITICAL, m)
 	}
+}
+
+func (l *Logger) Fatalf(exitCode int,format string, args ...interface{}) {
+	var m string
+	if len(args) == 0 {
+		m = format
+	} else {
+		m = fmt.Sprintf(format,args...)
+	}
+	l.dispatch(LEVEL_CRITICAL, m)
+	l.osExit(exitCode)
 }
 
 func (l *Logger) Fatal(m string, exitCode int) {

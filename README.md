@@ -25,12 +25,13 @@ err := logger.Init(header, serviceName, stdoutLevels, stderrLevels, devlogLevels
 #### Functions
 ```go
 func (l *Logger) Init(header string,serviceName string,stdoutLevel int,stderrLevel int,devlogLevel int) error {}
-func (l *Logger) Debug(m string) {}
-func (l *Logger) Info(m string) {}
-func (l *Logger) Warn(m string) {}
-func (l *Logger) Error(m string) {}
-func (l *Logger) Critical(m string) {}
-func (l *Logger) Fatal(m string) {}
+func (l *Logger) Debug(format string, args ...interface{}) {}
+func (l *Logger) Info(format string, args ...interface{}) {}
+func (l *Logger) Warn(format string, args ...interface{}) {}
+func (l *Logger) Error(format string, args ...interface{}) {}
+func (l *Logger) Critical(format string, args ...interface{}) {}
+func (l *Logger) Fatal(format string, args ...interface{}) {}
+func (l *Logger) Fatalf(exitCode int,format string, args ...interface{}) {}
 func (l *Logger) Destroy() error {}
 ```
 
@@ -54,13 +55,27 @@ if err != nil {
   fmt.Fprintf(os.Stderr, "CRITICAL Could not initialize logger. Quitting. Details: %s\n", err)
   os.Exit(1)
 }
-  
+
+// standard logger messages  
 logger.Info("This is info message")
 logger.Debug("This is debug message")
 logger.Error("This is error message")
 logger.Warn("This is warning message")
 logger.Critical("This is critical message")
-  
+
+// logger messages, like Printf (auto-discovery of printf happens, so same functions are used)
+logger.Info("%s %v","This is info message",10)
+logger.Debug("%s %v","This is debug message",10)
+logger.Error("%s %v","This is error message",10)
+logger.Warn("%s %v","This is warning message",10)
+logger.Critical("%s %v","This is critical message",10)
+
+// standard fatal exit with custom exit code
 code := 1
 logger.Fatal("This is a critical message that terminates the program with os.exit(code)", code)
+
+// fatal with printf has a separate fatalf
+code = 1
+logger.Fatalf(code,"%s","This is a critical message that terminates the program with os.exit(code)")
+
 ```
