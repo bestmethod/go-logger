@@ -5,7 +5,7 @@ stages:
 before_script:
     - cd /builds/bestmethod/go-logger
 
-build:
+test:
     stage: test
     script:
         - go test
