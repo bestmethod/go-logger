@@ -2,6 +2,7 @@ package Logger
 
 import (
 	"testing"
+	"os"
 )
 
 func TestLoggerMissingLevel(t *testing.T) {
@@ -58,6 +59,7 @@ func TestLoggerError(t *testing.T) {
 }
 
 func TestLoggerDevlog(t *testing.T) {
+	if _, err := os.Stat("/dev/log"); err == nil {
 	logger := new(Logger)
 	err := logger.Init("TEST", "TEST", LEVEL_NONE, LEVEL_NONE, LEVEL_DEBUG|LEVEL_INFO|LEVEL_WARN|LEVEL_ERROR|LEVEL_CRITICAL)
 	if err != nil {
@@ -69,6 +71,7 @@ func TestLoggerDevlog(t *testing.T) {
 	logger.Error("InfoError")
 	logger.Critical("InfoCritical")
 	logger.Destroy()
+	}
 }
 
 func TestLoggerAsync(t *testing.T) {
