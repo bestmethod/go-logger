@@ -1,10 +1,9 @@
-// +build !windows
+// +build windows
 
 package Logger
 
 import (
-	"log/syslog"
-	"os"
+"os"
 )
 
 const (
@@ -24,8 +23,8 @@ type Logger struct {
 	StdoutLevel int
 	Stderr      *os.File
 	StderrLevel int
-	Devlog      *syslog.Writer
 	DevlogLevel int
 	osExit      func(code int)
 	Async       bool
 }
+

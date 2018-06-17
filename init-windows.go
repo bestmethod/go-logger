@@ -1,9 +1,8 @@
-// +build !windows
+// +build windows
 
 package Logger
 
 import (
-	"log/syslog"
 	"os"
 )
 
@@ -14,6 +13,9 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 	l.StdoutLevel = stdoutLevel
 	l.StderrLevel = stderrLevel
 	l.DevlogLevel = devlogLevel
+	if l.DevlogLevel != LEVEL_NONE {
+		return errors.New("devlog isn't supported on windows")
+	}
 	l.osExit = os.Exit
 	l.Async = false
 	var err error
@@ -30,19 +32,9 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 	} else {
 		l.Stderr = nil
 	}
-	if devlogLevel != 0 {
-		l.Devlog, err = syslog.Dial("", "", syslog.LOG_DAEMON, l.ServiceName)
-	} else {
-		l.Devlog = nil
-	}
 	return err
 }
 
 func (l *Logger) Destroy() error {
-	if l.Devlog != nil {
-		l.DevlogLevel = 0
-		return l.Devlog.Close()
-	} else {
-		return nil
-	}
+	return nil
 }
