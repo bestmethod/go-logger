@@ -1,4 +1,4 @@
-// +build !windows
+// +build windows
 
 package Logger
 
@@ -112,19 +112,5 @@ func (l *Logger) dispatch(logLevel int, m string) {
 	}
 	if (l.StderrLevel & logLevel) != 0 {
 		l.Stderr.WriteString(mm)
-	}
-	if (l.DevlogLevel & logLevel) != 0 {
-		switch logLevel {
-		case LEVEL_DEBUG:
-			l.Devlog.Debug(mm)
-		case LEVEL_INFO:
-			l.Devlog.Info(mm)
-		case LEVEL_WARN:
-			l.Devlog.Warning(mm)
-		case LEVEL_ERROR:
-			l.Devlog.Err(mm)
-		case LEVEL_CRITICAL:
-			l.Devlog.Crit(mm)
-		}
 	}
 }
