@@ -4,6 +4,7 @@ package Logger
 
 import (
 	"os"
+	"errors"
 )
 
 func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderrLevel int, devlogLevel int) error {
