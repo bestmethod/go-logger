@@ -93,16 +93,30 @@ func (l *Logger) Fatal(m string, exitCode int) {
 
 func (l *Logger) dispatch(logLevel int, m string) {
 	var mm string
-	if logLevel == LEVEL_DEBUG {
-		mm = fmt.Sprintf("DEBUG    %s %s", l.Header, m)
-	} else if logLevel == LEVEL_INFO {
-		mm = fmt.Sprintf("INFO     %s %s", l.Header, m)
-	} else if logLevel == LEVEL_WARN {
-		mm = fmt.Sprintf("WARN     %s %s", l.Header, m)
-	} else if logLevel == LEVEL_ERROR {
-		mm = fmt.Sprintf("ERROR    %s %s", l.Header, m)
-	} else if logLevel == LEVEL_CRITICAL {
-		mm = fmt.Sprintf("CRITICAL %s %s", l.Header, m)
+	if l.Header != "" {
+		if logLevel == LEVEL_DEBUG {
+			mm = fmt.Sprintf("DEBUG    %s %s", l.Header, m)
+		} else if logLevel == LEVEL_INFO {
+			mm = fmt.Sprintf("INFO     %s %s", l.Header, m)
+		} else if logLevel == LEVEL_WARN {
+			mm = fmt.Sprintf("WARN     %s %s", l.Header, m)
+		} else if logLevel == LEVEL_ERROR {
+			mm = fmt.Sprintf("ERROR    %s %s", l.Header, m)
+		} else if logLevel == LEVEL_CRITICAL {
+			mm = fmt.Sprintf("CRITICAL %s %s", l.Header, m)
+		}
+	} else {
+		if logLevel == LEVEL_DEBUG {
+			mm = fmt.Sprintf("DEBUG    %s", m)
+		} else if logLevel == LEVEL_INFO {
+			mm = fmt.Sprintf("INFO     %s", m)
+		} else if logLevel == LEVEL_WARN {
+			mm = fmt.Sprintf("WARN     %s", m)
+		} else if logLevel == LEVEL_ERROR {
+			mm = fmt.Sprintf("ERROR    %s", m)
+		} else if logLevel == LEVEL_CRITICAL {
+			mm = fmt.Sprintf("CRITICAL %s", m)
+		}
 	}
 	mm = fmt.Sprintf("%s %s[%d]: %s\n", time.Now().UTC().Format("Jan 02 15:04:05-0700"), l.ServiceName, l.pid, mm)
 	if (l.StdoutLevel & logLevel) != 0 {
