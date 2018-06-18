@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2158dfdd-217f-4902-aba3-d8566f291274" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/const.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/f_not_win.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/f_windows.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/init-windows.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/init.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structs-windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs-windows.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/structs.go" beforeDir="false" afterPath="$PROJECT_DIR$/structs.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/f_windows.go" beforeDir="false" afterPath="$PROJECT_DIR$/f_windows.go" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,20 +22,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="f_windows.go" pinned="false" current-in-tab="true">
+      <file leaf-file-name="f_windows.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/f_windows.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="135">
+              <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="f_not_win.go" pinned="false" current-in-tab="false">
+      <file leaf-file-name="f_not_win.go" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/f_not_win.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
+            <state relative-caret-position="255">
+              <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -51,17 +43,8 @@
       <file leaf-file-name="logger.go" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/logger.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logger-windows.go" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/logger-windows.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1285">
-              <caret lean-forward="true" />
+            <state relative-caret-position="360">
+              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -176,9 +159,6 @@
     </recent_temporary>
   </component>
   <component name="TestHistory">
-    <history-entry file="go_test - 2018.06.13 at 16h 57m 35s.xml">
-      <configuration name="go test" configurationId="GoTestRunConfiguration" />
-    </history-entry>
     <history-entry file="go_test - 2018.06.13 at 16h 57m 59s.xml">
       <configuration name="go test" configurationId="GoTestRunConfiguration" />
     </history-entry>
@@ -206,17 +186,20 @@
     <history-entry file="go_test - 2018.06.18 at 08h 02m 24s.xml">
       <configuration name="go test" configurationId="GoTestRunConfiguration" />
     </history-entry>
+    <history-entry file="go_test - 2018.06.18 at 08h 07m 49s.xml">
+      <configuration name="go test" configurationId="GoTestRunConfiguration" />
+    </history-entry>
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="956" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26190478" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3282887" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3282887" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -355,13 +338,6 @@
     <entry file="file://$PROJECT_DIR$/init.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/logger_test.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/structs-windows.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -395,22 +371,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/logger.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="103" column="31" selection-start-line="103" selection-start-column="31" selection-end-line="103" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/f_not_win.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="30" lean-forward="true" selection-start-line="29" selection-end-line="30" />
+        <state relative-caret-position="360">
+          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/f_windows.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+        <state relative-caret-position="135">
+          <caret line="9" column="5" lean-forward="true" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/logger_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="76" column="27" selection-start-line="76" selection-start-column="27" selection-end-line="76" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/f_not_win.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="1" lean-forward="true" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
         </state>
       </provider>
     </entry>

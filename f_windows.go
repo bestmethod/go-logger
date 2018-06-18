@@ -2,6 +2,8 @@
 
 package Logger
 
+import "errors"
+
 func (l *Logger) DevlogOsCheck() error {
 	if l.DevlogLevel != LEVEL_NONE {
 		return errors.New("devlog isn't supported on windows")
