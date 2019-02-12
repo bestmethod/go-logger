@@ -19,4 +19,5 @@ type Logger struct {
 	DevlogLevel int
 	osExit      func(code int)
 	Async       bool
+	Format      string
 }

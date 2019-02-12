@@ -118,7 +118,7 @@ func (l *Logger) dispatch(logLevel int, m string) {
 			mm = fmt.Sprintf("CRITICAL %s", m)
 		}
 	}
-	mm = fmt.Sprintf("%s %s[%d]: %s\n", time.Now().UTC().Format("Jan 02 15:04:05-0700"), l.ServiceName, l.pid, mm)
+	mm = fmt.Sprintf("%s %s[%d]: %s\n", time.Now().UTC().Format(l.Format), l.ServiceName, l.pid, mm)
 	if (l.StdoutLevel & logLevel) != 0 {
 		l.Stdout.WriteString(mm)
 	}

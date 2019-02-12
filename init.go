@@ -11,6 +11,7 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 	l.StdoutLevel = stdoutLevel
 	l.StderrLevel = stderrLevel
 	l.DevlogLevel = devlogLevel
+        l.Format = "Jan 02 15:04:05-0700"
 	var err error
 	err = l.DevlogOsCheck()
 	if err != nil {
@@ -33,4 +34,8 @@ func (l *Logger) Init(header string, serviceName string, stdoutLevel int, stderr
 	}
 	err = l.DevlogInit()
 	return err
+}
+
+func (l *Logger) TimeFormat(newFormat string) {
+        l.Format = newFormat
 }
