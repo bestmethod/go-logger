@@ -33,6 +33,7 @@ func (l *Logger) Critical(format string, args ...interface{}) {}
 func (l *Logger) Fatal(format string, args ...interface{}) {}
 func (l *Logger) Fatalf(exitCode int,format string, args ...interface{}) {}
 func (l *Logger) Destroy() error {}
+func (l *Logger) TimeFormat(newFormat string) {}
 ```
 
 #### Destroy objects before forgetting them
