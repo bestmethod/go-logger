@@ -1,5 +1,5 @@
 # go-logger Golang Logger
-Logger on steroids. Build passing. 100% test coverage.
+Logger on steroids.
 
 ## Get it
 ```bash
